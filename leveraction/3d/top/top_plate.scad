@@ -3,7 +3,8 @@ include <symbol_segment.scad>
 
 segment_width = 20;
 // M3 screw-hole settings
-screw_hole_diameter = 3.2;
+//screw_hole_diameter = 3.2;
+screw_hole_diameter = 3;
 screw_head_diameter = 6.2;
 screw_head_height = 2.5;
 
@@ -100,4 +101,4 @@ module top_plate() {
     }
 }
 
-top_plate();
+//top_plate();
