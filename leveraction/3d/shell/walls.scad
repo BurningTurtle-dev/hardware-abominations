@@ -6,7 +6,7 @@ len_y = 248;
 height = 30;
 thickness = 2;
 
-hole_radius = 5;
+hole_radius = 4;
 slot_width = 10;
 slot_height = 5;
 
@@ -17,7 +17,8 @@ nunchuck_width = 10;
 
 module walls () {
     difference() {
-        cube(size=[len_x,len_y,height], center=true);
+        translate([0,0,2])
+        cube(size=[len_x+thickness,len_y+thickness,height+4], center=true);
         cube(size=[len_x-2*thickness,len_y-2*thickness,height], center=true);
         
         translate([len_x/2, 0,0])
@@ -30,7 +31,11 @@ module walls () {
         //nunchuck slot
         translate([0,len_y/2,0])
         cube(size=[nunchuck_width,nunchuck_width,nunchuck_height], center=true);
-        }
+        
+        //top_plate cuttout
+        translate([0,0,4+height/2])
+        cube(size=[len_x+0.5,len_y+0.5,8], center=true);
+    }
         
     
     //Screws
@@ -59,5 +64,5 @@ module walls () {
 rotate([0,0,90])
 
 walls();
-translate([-len_y/2+4,-len_x/2+4,height/2+3])
-top_plate();
+//translate([-len_y/2+4,-len_x/2+4,height/2+3])
+//top_plate();
